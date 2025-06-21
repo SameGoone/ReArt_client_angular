@@ -1,0 +1,63 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2 class="auth-title">Create a New Account</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class="form-field">
+        <label for="displayName">Display Name</label>
+        <input id="displayName" type="text" formControlName="displayName"
+               [ngClass]="{'invalid-field': registerForm.get('displayName')?.invalid && registerForm.get('displayName')?.touched}">
+
+        <div *ngIf="registerForm.get('displayName')?.invalid && registerForm.get('displayName')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('displayName')?.errors?.['required']">Display Name is required.</small>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username"
+               [ngClass]="{'invalid-field': registerForm.get('username')?.invalid && registerForm.get('username')?.touched}">
+
+        <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</small>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email"
+               [ngClass]="{'invalid-field': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}">
+
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password"
+               [ngClass]="{'invalid-field': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}">
+
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+          <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+        </div>
+      </div>
+
+      <div *ngIf="registerError" class="error-message api-error">
+        <p *ngFor="let err of registerError">{{ err }}</p>
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="isSubmitting || registerForm.invalid">
+        {{ isSubmitting ? 'Registering...' : 'Register' }}
+      </button>
+
+    </form>
+
+    <div class="switch-form-link">
+      Already have an account? <a routerLink="/auth/login">Login</a>
+    </div>
+  </div>
+</div>

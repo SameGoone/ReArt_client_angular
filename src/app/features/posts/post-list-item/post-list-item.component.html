@@ -1,0 +1,11 @@
+<div class="post-card" [routerLink]="['/posts', post.id]">
+  <img *ngIf="post.image" class="post-image"
+       [src]="'data:image/' + post.image.format + ';base64,' + post.image.base64Data"
+       alt="Post image">
+  <div class="post-content">
+    <p class="post-author">by {{ post.user?.displayName }}</p>
+    <div class="post-footer">
+      <span>{{ post.createdAt | date:'dd MMM yyyy H:mm' }}</span>
+      </div>
+  </div>
+</div>

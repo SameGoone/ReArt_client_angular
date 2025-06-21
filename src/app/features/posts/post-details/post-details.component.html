@@ -1,0 +1,27 @@
+<div *ngIf="isLoading$ | async; else details" class="loading-container">
+  <p>Loading post...</p>
+</div>
+
+<ng-template #details>
+  <div *ngIf="selectedPost$ | async as post" class="post-details-container">
+    <div class="header-actions">
+      <a routerLink="/posts" class="back-button">&larr; Back to Posts</a>
+    </div>
+
+    <div class="post-header">
+      <img *ngIf="post.image"
+           [src]="'data:image/' + post.image.format + ';base64,' + post.image.base64Data"
+           alt="Post Image" class="post-image-full">
+
+      <div class="post-meta">
+        <p>
+          by <strong>{{ post.user?.displayName }}</strong>
+        </p>
+        </div>
+      <div class="post-body">
+        <p>{{ post.body }}</p>
+      </div>
+    </div>
+
+    </div>
+</ng-template>

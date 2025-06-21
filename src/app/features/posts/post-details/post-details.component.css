@@ -1,0 +1,34 @@
+.loading-container {
+  text-align: center;
+  padding: 2em;
+}
+.post-details-container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+}
+.header-actions {
+  margin-bottom: 1em;
+}
+.back-button {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+.post-header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1em;
+}
+.post-image-full {
+  width: 100%;
+  border-radius: 4px;
+}
+.post-meta {
+  margin-top: 1em;
+}
+.post-body {
+  margin-top: 1em;
+  line-height: 1.6;
+}

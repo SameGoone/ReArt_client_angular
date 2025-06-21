@@ -1,0 +1,33 @@
+.post-card {
+  display: inline-block;
+  width: 320px;
+  margin: 0 1em 1em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: white;
+}
+.post-card:hover {
+  transform: translateY(-5px);
+}
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.post-content {
+  padding: 1em;
+}
+.post-author {
+  margin: 0 0 0.5em 0;
+  font-weight: 500;
+}
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  color: #666;
+}

@@ -1,0 +1,9 @@
+<div class="dashboard-container">
+  <div *ngIf="isLoading$ | async; else postList" class="loading-container">
+    <p>Loading posts...</p>
+  </div>
+
+  <ng-template #postList>
+    <post-list [posts]="posts$ | async"></post-list>
+  </ng-template>
+</div>
